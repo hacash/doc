@@ -71,7 +71,9 @@ The parameters common to multiple interfaces are introduced as follows:
 | unit | string  | - | mei,zhu,shuo,ai,miao,248,244,240,... | return the HAC amount use unit: mei, zhu, shuo, zi, miao |
 | coinkind | menu |-| h, s, d, hs, hd, hsd, all | Filter the returned account and transaction information type. h: hacash, s: satoshi, d: diamond. Purpose: For example, when scanning a block, you only need to return the HAC transfer content and ignore the other two, just pass `kind=h`. |
 | hexbody | bool | false | true, false | `/submit` Whether to use the hex string form of Http Body when submitting data. The default format is native bytes. |
+| base64 | bool | false | true, false | Whether all binary data is returned with base64 encoding. |
 
+All of the above parameters are optional.
 
 ### Return value, public field
 
@@ -499,6 +501,13 @@ Example Access Interface:
 
 [http://nodeapi.hacash.org/query/miner/pending](http://nodeapi.hacash.org/query/miner/pending)
 
+Pass parameters:
+
+- detail [bool] Optional, Whether to return more detailed block fields
+- transaction [bool] Optional, Whether to return all transaction body data
+- base64 [bool] Optional, Whether all binary data is returned with base64 encoding
+
+
 Example of interface return:
 
 ```js
@@ -506,10 +515,32 @@ Example of interface return:
     ret: 0,
     height: 575618,
     target_hash: "00000000001172658fffffffffffffffffffffffffff",
-    transaction_count: 6,
-    reward_address: "1AVRuFXNFi3rdMrPH4hdqSgFrEBnWisWaS",
     coinbase_nonce: "0000000000000000000000000000000000000000000000000000000000000001",
     block_intro: "01000008c8820066bc9bce000000000008e3c7eda5a7abd046e09ac2b5902aca50d4cd88ae8963e13925522566fb0e6c3e95ed652ee5e23a7d0b10db6e88ac5c27c1ba2b1cbe429a68cb540000000700000000d48b932c0000"
+}
+```
+
+If pass the url parameter `detail=true`, increment the following fields to return:
+
+```js
+{
+    version: 1,
+    prevhash: "...",
+    timestamp: 23485762,
+    transaction_count: 6,
+    reward_address: "1AVRuFXNFi3rdMrPH4hdqSgFrEBnWisWaS",
+}
+```
+
+If pass the url parameter `transaction=true`, increment the following fields to return:
+
+```js
+{
+    transaction_body_list: [
+        "....",
+        "...."
+        // ...
+    ]
 }
 ```
 
