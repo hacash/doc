@@ -52,11 +52,11 @@ RUSTFLAGS="$RUSTFLAGS -Awarnings" cargo build --release
 
 If you get a fatal error here, then the most likely thing is that the C compiler or the CMake development package is not installed.
 
-## Compile the PoWorker
+## Compile the `PoWorker` or `DiaWorker`
 
 In the Rust version of the full node, there is no HAC or HACD mining functionality, they are moved out to a separate executable file that communicates with the full node via an HTTP interface.
 
-To compile a separate HAC miner, you need to modify `src/main.rs` file like this:
+To compile a separate HAC miner or HACD miner , you need to modify `src/main.rs` file like this:
 
 ```rust
 use crate::run::*;
@@ -64,6 +64,7 @@ use crate::run::*;
 fn main() {
 
     // poworker(); // PoW Miner Worker
+    // diaworker(); // Diamond Miner Worker
     fullnode(); // Hacash Full Node
 
 }
@@ -77,16 +78,19 @@ use crate::run::*;
 fn main() {
 
     poworker(); // PoW Miner Worker
+    // diaworker(); // Diamond Miner Worker
     // fullnode(); // Hacash Full Node
 
 }
 ```
 
-In this way, the compilation result can be obtained as small as possible, which is convenient for a large number of mining machines to deploy.
+In this way, the compilation result can be obtained as small as possible, which is convenient for a large number of mining machines to deploy. 
+
+To compile HACD miner, just turn it on `diaworker()`.
 
 ---
 
-## Run the Fullnode or PoW worker
+## Run the Fullnode or HAC/HACD worker
 
 If you want to run a fullnode or miner worker, check out the [Hacash Configuration Description](https://github.com/hacash/doc/blob/main/build/config_description.md).
 
