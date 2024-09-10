@@ -51,17 +51,18 @@ not_find_nodes = false
 [server]
 
 ;;; true or false indicates that the api service for the full node is enabled
+;;; If want to mine HAC or HACD, must open the server
 enable = true
 
 ;;; The port on which the HTTP service listens, such as accessing the API via http://127.0.0.1:8081
 listen = 8081
 
 
-;;; Mining configurations
+;;; HAC Mining configurations
 [miner]
 
 ;;; true or false indicates that mining support is enabled on full nodes
-;;; This is required for both HAC and HACD mining to enable full node transaction pooling or to pack new blocks
+;;; This is required for both HAC and HACD mining to enable full node tx pool or to pack new blocks
 enable = true
 
 ;;; If the HAC mining is successful, the address of the block reward
@@ -71,10 +72,32 @@ reward = 1AVRuFXNFi3rdMrPH4hdqSgFrEBnWisWaS
 message = HacPool ; my_pool_node
 
 
+;;; HACD Mining configurations
+[diamondminer]
+
+;;; true or false indicates that mining support is enabled on full nodes
+;;; This is required for both HAC and HACD mining to enable full node tx pool or to pack new blocks
+enable = true
+
+;;; If the HACD mining is successful, the address of the reward
+reward = 1AVRuFXNFi3rdMrPH4hdqSgFrEBnWisWaS
+
+;;; The private key or password of the bidding account used for HACD mining
+bid_password = pass123456 ; or private key of hex
+
+;;; The minimum bid for the HACD auction
+bid_min = 0.0001 ; or 1:244
+
+;;; The maximum bid for the HACD auction
+bid_max = 25:248 ; or 25.0
+
+;;; The magnitude of the increase per quote
+bid_step = 1:248 ; or 1.0
+
 
 ```
 
-## PoWorker HAC Mining configuration
+## `PoWorker` HAC Mining configuration
 
 
 The miner maintains a connection to the whole network through the API interface of the full node, obtains new blocks to be mined, listens for the next block, or submits successfully mined blocks.
@@ -94,6 +117,30 @@ connect = 127.0.0.1:8081
 supervene = 2
 
 ```
+
+
+
+## `DiaWorker` HACD Mining configuration
+
+
+Miners stay connected to the entire network through the full node's API interface, get new HACDs to be mined, or listen to switch to the next HACD.
+
+Multiple machines can be connected to a full node at the same time to mine, through the public network or local area network connection. The hashrate will be stacked.
+
+
+```ini
+
+;;; The full node API service IP address and port of the connection
+connect = 127.0.0.1:8081
+
+;;; Currently, only CPU device mining is supported
+;;; Multi-threaded mining, using CPU multi-core parallel mining.
+supervene = 2
+
+```
+
+
+
 
 
 

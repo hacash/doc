@@ -1,4 +1,4 @@
-Hacash Rust Fullnode RPC API documentation
+Hacash Rust Fullnode RPC API document
 ===
 
 This document contains the api interface specification and examples for block scanning, transaction transfer query, account balance query, block diamond information query, creation of new accounts, creation of transfer transactions, etc. It is part of the development of the Hacash cryptocurrency nd facilitates the blockchain explorer browser and exchange functionality.
