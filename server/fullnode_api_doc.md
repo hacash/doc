@@ -252,7 +252,7 @@ The return value after the call is as follows
 
 | Query | Arguments | Mandatory | Notes |
 | ---- | ---- | ---- | ---- |
-| balance | address_list, unitmei, kind,  |address_list| up to 200 comma, delmited addresses , kind : hsd, unitmei : boolean |
+| balance | address, unit, kind,  |address| up to 200 comma, delmited addresses , kind : hsd, unit : boolean |
 | diamond | name or number | name or number | singleton returns diamond information |
 | latest |  | | block height & diamond number |
 | supply |  | | coin total supply |
