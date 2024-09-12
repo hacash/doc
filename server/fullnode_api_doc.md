@@ -276,6 +276,10 @@ Pass parameters:
 
  [http://nodeapi.hacash.org/query/balance?unit=mei&address=18Yt6UbnDKaXaBaMPnBdEHomRYVKwcGgyH,1DYY4ZRsWnhjcwwnE3dWgtiqe2mctDS2HF](http://nodeapi.hacash.org/query/balance?unit=mei&address=18Yt6UbnDKaXaBaMPnBdEHomRYVKwcGgyH,1DYY4ZRsWnhjcwwnE3dWgtiqe2mctDS2HF)
  
+ Or get all HACD name list by add param `diamonds=true`:
+
+ [http://nodeapi.hacash.org/query/balance?unit=mei&address=18Yt6UbnDKaXaBaMPnBdEHomRYVKwcGgyH,1DYY4ZRsWnhjcwwnE3dWgtiqe2mctDS2HF&diamonds=true](http://nodeapi.hacash.org/query/balance?unit=mei&address=18Yt6UbnDKaXaBaMPnBdEHomRYVKwcGgyH,1DYY4ZRsWnhjcwwnE3dWgtiqe2mctDS2HF&diamonds=true)
+ 
 
  Example return value:
 
