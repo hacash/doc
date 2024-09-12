@@ -259,7 +259,8 @@ The return value after the call is as follows
 | hashrate |  | | PoW mining hashrates |
 | hashrate/logs |  | | PoW mining hashrates historical statistics |
 | block/intro | height or hash | height or hash | returns block headers |
-| coin/transfers | height, txhash, txposi, kind, unitmei| height or txhash| returns transaction for block height index txposi (default=0) |
+| coin/transfers | height, txhash, txposi, kind, unit| height or txhash| returns transaction for block height index txposi (default=0) |
+| transaction | hash, unit| hash| return transaction info and actions |
 
 
 #### 3.1 Query account balance `GET: /query/balance`
@@ -429,6 +430,49 @@ Example Return：
 }
 
 ```
+
+#### 3.6 get transaction info `GET: /query/transaction`
+
+Pass parameters:
+
+- hash [int] Tx hash
+- action [bool] Optional, whether to return actions info
+- unit [string] Optional, whether to return floating-point string in units of "mei" or "248"
+- body [bool] Optional, whether to return transaction body data of hex
+- signature [bool] Optional, whether to return transaction signature check object
+- description [bool] Optional, whether to return transaction actions description
+
+Example API 1：[http://nodeapi.hacash.org/query/transaction?hash=b563b525d5a840f14c2f1d7da52a1eb3f7ee7357e784af8b68d0b0f74b95cbb4&action=true&unit=mei](http://nodeapi.hacash.org/query/transaction?hash=b563b525d5a840f14c2f1d7da52a1eb3f7ee7357e784af8b68d0b0f74b95cbb4&action=true&unit=mei)
+
+Example Return：
+
+```js
+{
+    ret: 0,
+    block: {
+        height: 583881,
+        timestamp: 1726169459
+    },
+    confirm: 4,
+    hash_with_fee: "ee5c254b1f1628eacff17ea39836a17569d5d5bbd8d9e97b8a0383dac95740ac",
+    hash: "b563b525d5a840f14c2f1d7da52a1eb3f7ee7357e784af8b68d0b0f74b95cbb4"
+    fee: "0.0001",
+    fee_got: "0.0001",
+    type: 2,
+    timestamp: 1726169260,
+    main_address: "12pbJdDmvZcRs3BhJnJ1RKuiHE48mVJS71",
+    action: 1,
+    actions:[{
+        kind: 1,
+        hacash: "15.9975414",
+        from: "12pbJdDmvZcRs3BhJnJ1RKuiHE48mVJS71",
+        to: "1NzdWYfp42gpRDf9Hsv5CA6D5gQvMt3599"
+    }],
+}
+
+```
+
+Note: the fields ' hacash / satoshi / diamond / diamonds / from / to ' in the `actions` array are the same as the `transfers` fields in the other api `GET: /query/coin/transfer`
 
 
 #### 3.7 Query total supply `GET: /query/supply`
