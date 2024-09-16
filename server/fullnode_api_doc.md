@@ -431,7 +431,49 @@ Example Return：
 
 ```
 
-#### 3.6 get transaction info `GET: /query/transaction`
+
+#### 3.6 Scan each diamond inscription or clear `GET: /query/diamond/engrave`
+
+Pass parameters:
+
+- height [int] Block height to scan
+- txposi [int] Optional, The transaction to be scanned is at the array index position in the block, starting from 0
+- tx_hash [bool] Optional, Whether to return each engraved transaction hash
+
+If don't pass the `txposi` field, the inscription for the entire block is scanned at once.
+
+Example API 1：[http://nodeapi.hacash.org/query/diamond/engrave?height=519242&txposi=0](http://nodeapi.hacash.org/query/diamond/engrave?height=519242&txposi=0)
+
+Example API 2：[http://nodeapi.hacash.org/query/diamond/engrave?height=531045](http://nodeapi.hacash.org/query/diamond/engrave?height=531045)
+
+Example API 3：[http://nodeapi.hacash.org/query/diamond/engrave?height=540771&tx_hash=true](http://nodeapi.hacash.org/query/diamond/engrave?height=540771&tx_hash=true)
+
+Example Return：
+
+```js
+{
+    ret: 0,
+    list: [
+    {   /* do single engrave */
+        inscription: "HIP-15 1st HACD",
+        diamonds:"BMABAT"
+    },
+    {   /* multiple diamonds are engraved in batches */
+        inscription: "Hacds",
+        diamonds:"SHHHKSUKIUEIZKBYEVHKYWBYAUTZHY",
+        tx_hash: '9beeb7c528d5e9f9edfbd08f16a5d117164d466ae4c8edc038609d9117119cc2' /* if pass `txposi` field  */
+    },
+    {   /* clear all inscription */
+        clear: true, // clear mark
+        diamonds:"WETUAX" // or "SHHHKSUKIUEIZKBYEVHKYWBYAUTZHY"
+    }
+    ]
+}
+```
+
+
+
+#### 3.7 get transaction info `GET: /query/transaction`
 
 Pass parameters:
 
@@ -475,7 +517,7 @@ Example Return：
 Note: the fields ' hacash / satoshi / diamond / diamonds / from / to ' in the `actions` array are the same as the `transfers` fields in the other api `GET: /query/coin/transfer`
 
 
-#### 3.7 Query total supply `GET: /query/supply`
+#### 3.8 Query total supply `GET: /query/supply`
 
  examples link：[http://nodeapi.hacash.org/query/supply](http://nodeapi.hacash.org/query/supply)
  
