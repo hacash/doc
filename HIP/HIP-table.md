@@ -12,6 +12,7 @@ Status mark:
 | |HIP|Name|Document|Discuss|
 |---|:---:|---|---:|---:|
 |❔|20|Issuance of Assets on Mainnet| |[hacashtalk ➚](https://hacashtalk.com/t/proposal-for-the-issuance-of-external-assets-on-the-hacash-mainnet-draft/338) | 
+|❔|18|HACD Minimum Bidding Fee|[github ➚](https://github.com/hacash/fullnode/issues/5#issuecomment-2626283210)|[github ➚](https://github.com/hacash/fullnode/issues/5)|
 |❔|17|Prevent Exploitation of Low-Bid HACD Mining|[github ➚](https://github.com/hacash/fullnode/issues/5)|[hacashtalk ➚](https://hacashtalk.com/t/hip-17-proposed-solutions-to-prevent-exploitation-of-low-bid-hacd-mining/351) | 
 |❔|16|Programmability of Layer 1|[github ➚](https://github.com/hacash/paper/blob/master/HIP/protocol/account_and_syntax_tree_abstraction.md) | |
 |🟩|15|HACD Secondary Artistic Creation|[github ➚](https://github.com/hacash/paper/blob/master/HIP/diamond/hacd_inscription.md) |[hacashtalk ➚](https://hacashtalk.com/t/hip15-hacd-secondary-artistic-creation-signature-engraving-and-erasure/184)|
