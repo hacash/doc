@@ -259,7 +259,7 @@ The return value after the call is as follows
 | hashrate |  | | PoW mining hashrates |
 | hashrate/logs |  | | PoW mining hashrates historical statistics |
 | block/intro | height or hash | height or hash | returns block headers |
-| coin/transfers | height, txhash, txposi, kind, unit| height or txhash| returns transaction for block height index txposi (default=0) |
+| coin/transfer | height, txhash, txposi, kind, unit| height or txhash| returns transaction for block height index txposi (default=0) |
 | transaction | hash, unit| hash| return transaction info and actions |
 
 
@@ -379,7 +379,7 @@ return data：
 
 #### 3.5 Scan each transaction to obtain a brief transfer operation `GET: /query/coin/transfer`
 
-The `scan_value_transfers` interface returns richer and more structured content. If you only need to obtain transfer actions for HAC, HACD, and BTC for simple needs such as exchange recharge, you can use `scan_coin_transfers` interface makes the content more concise.
+The `scan_value_transfer` interface returns richer and more structured content. If you only need to obtain transfer actions for HAC, HACD, and BTC for simple needs such as exchange recharge, you can use `scan_coin_transfer` interface makes the content more concise.
 
 Pass parameters:
 
