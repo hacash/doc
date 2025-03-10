@@ -53,13 +53,18 @@ When you need to collect a customer's deposit to a hot wallet, or transfer from 
 
 When manually withdrawing HACD from a cold wallet to a hot wallet, you can go to [Blockchain Explorer] (https://explorer.hacash.org/) to view the list of HACD names in the cold wallet address, and then manually initiate the transfer.
 
-> [Convenient Data Api] If this kind of aggregation and hot and cold maintenance needs to be automated, then the block explorer provides an interface to query the diamond literal value owned by a single address:  [https://explorer.hacash.org/api/ranking/diamonds?address=1QDc1twwVy3acuftAv3GuNnKwxopYi9VLb] (https://explorer.hacash.org/api/ranking/diamonds?address=1QDc1twwVy3acuftAv3GuNnKwxopYi9VLb) 
+> [Convenient Data Api] If this kind of aggregation and hot and cold maintenance needs to be automated, then the fullnode provides an interface to query the diamond literal value owned by a single address:  [https://github.com/hacash/doc/blob/main/server/fullnode_api_doc.md#31-query-account-balance-get-querybalance] (https://github.com/hacash/doc/blob/main/server/fullnode_api_doc.md#31-query-account-balance-get-querybalance) 
+> please enable `diamond_form = true` in the`[server]` group in the full node configuration file
 
 The return values are as follows:
 
 ```js
 {
-    diamonds: "KEATNHZVHIVYTBSVUWEUBUUWHZNVMIHNWSVUWUXNXVASYXTVTNSBHBUWMYUM",
+    list: [
+        {   /* ... other ... */
+            diamonds: "KEATNHZVHIVYTBSVUWEUBUUWHZNVMIHNWSVUWUXNXVASYXTVTNSBHBUWMYUM",
+        }
+    ]
     ret: 0,
 }
 ```
