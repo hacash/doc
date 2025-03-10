@@ -20,7 +20,7 @@ listen = 8081
 
 ```
 
-The above configuration `enable = true` means to enable the RPC interface service, `rpc_listen_port = 8083` means that the listening http service port is 8081.
+The above configuration `enable = true` means to enable the RPC interface service, `listen = 8081` means that the listening http service port is 8081.
 
 Visit `http://127.0.0.1:8081/` to verify operation, if all is good you will see:
 
@@ -69,9 +69,9 @@ The parameters common to multiple interfaces are introduced as follows:
 | Parameter name | Type | Default value | Example value | Function introduction |
 | ---- | ---- | ---- | ---- | ---- |
 | unit | string  | - | mei,zhu,shuo,ai,miao,248,244,240,... | return the HAC amount use unit: mei, zhu, shuo, zi, miao |
-| coinkind | menu |-| h, s, d, hs, hd, hsd, all | Filter the returned account and transaction information type. h: hacash, s: satoshi, d: diamond. Purpose: For example, when scanning a block, you only need to return the HAC transfer content and ignore the other two, just pass `kind=h`. |
+| coinkind | menu |-| h, s, d, hs, hd, hsd, all | Filter the returned account and transaction information type. h: hacash, s: satoshi, d: diamond. Purpose: For example, when scanning a block, you only need to return the HAC transfer content and ignore the other two, just pass `coinkind=h`. |
 | hexbody | bool | false | true, false | `/submit` Whether to use the hex string form of Http Body when submitting data. The default format is native bytes. |
-| base64 | bool | false | true, false | Whether all binary data is returned with base64 encoding. |
+| base64body | bool | false | true, false | Whether all binary data is returned with base64 encoding. |
 
 All of the above parameters are optional.
 
@@ -83,7 +83,8 @@ Respond to all requests in standard JSON format. The public fields are as follow
 
 {
   "ret": 0, // indicates the return type, 0 is correct, >= 1 indicates an error occurred or the query does not exist
-  "list": [...] // Some interfaces that return list data will be used
+  "list": [...], // Some interfaces that return list data will be used
+  "err": "...." // This field is returned if there is an error
 }
 
 ```
@@ -213,7 +214,7 @@ Or return an error
 {
     ret: 1 // ret = 1 means submitting a transaction error
     // For example, if the balance is insufficient, the error message is as follows:
-    errmsg: "address 1MzNY1oA3kfgYi75zquj3SRUPYztzXHzK9 balance ㄜ0:0 not enough, need ㄜ1,245:246."
+    err: "address 1MzNY1oA3kfgYi75zquj3SRUPYztzXHzK9 balance ㄜ0:0 not enough, need ㄜ1,245:246."
 }
 ```
 Example of curl command line test call:
@@ -302,7 +303,9 @@ Pass parameters:
     ]
 }
 ```
-Note: The returned balance list corresponds to the position of the passed account list.
+Note 1: The returned balance list corresponds to the position of the passed account list.
+
+Note 2: If you need to return the `diamonds` field, please enable `diamond_form = true` in the`[server]` group in the full node configuration file, and the full node will enable the record of the account HACD list.
 
 #### 3.2 Query block diamond information `GET: /query/diamond`
 
@@ -422,8 +425,8 @@ Example Return：
         {
             from: "13RnDii79ypWayV8XkrBFFci29cHtzmq3Z",
             to: "1EcrtFAUmVeLnGeaEcMDoPZH7ZPysks1H2",
-            diamond: 1,
-            diamonds: "WUZXYM,IZHTEW,IIUMWH" // Batch transfer of diamonds
+            diamond: 3,
+            diamonds: "WUZXYMIZHTEWIIUMWH" // Batch transfer of diamonds
         }
     ],
     type: 2
