@@ -24,9 +24,9 @@ Compilation build instructions:
 
 ### SDK & RPC & API Doc 
 
--[Rust_fullnode_api_doc.md](https://github.com/hacash/doc/blob/main/server/fullnode_api_doc.md) 
--[Memtxpool_operation_important_note.md](https://github.com/hacash/doc/blob/main/server/memtxpool_operation_important_note.md) 
--[HACD_explain_for_exchange.md](https://github.com/hacash/doc/blob/main/server/hacd_explain_for_exchange.md) 
+- [Rust_fullnode_api_doc.md](https://github.com/hacash/doc/blob/main/server/fullnode_api_doc.md) 
+- [Memtxpool_operation_important_note.md](https://github.com/hacash/doc/blob/main/server/memtxpool_operation_important_note.md) 
+- [HACD_explain_for_exchange.md](https://github.com/hacash/doc/blob/main/server/hacd_explain_for_exchange.md) 
 
 ---
 
