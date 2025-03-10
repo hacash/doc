@@ -551,7 +551,9 @@ Pass parameters:
 - fee [string] The target fee to be modified
 - fee_prikey [string] The private key of the fee address
 - unit [string] Optional, whether to use the unit "mei" as the unit 
-- txbody [hex] Optional, when the transaction does not exist in the transaction pool, modify the fee by using the submitted txbody, and broadcast the transaction to the whole network again
+
+
+Note: when the transaction does not exist in the transaction pool, modify the fee by using POST the submitted HTTP BODY, and broadcast the transaction to the whole network again
 
 Example Access Interface: 
 
