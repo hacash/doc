@@ -11,13 +11,14 @@ Status mark:
 
 | |HIP|Name|Document|Discuss|
 |---|:---:|---|---:|---:|
+|❔|21|Hacash Virtual Machine|[hvm.pdf ➚](https://hacash.com/hvm.pdf)|[X ➚](https://x.com/YouKenTrust/status/1921959644291031440) | 
 |❔|20|Issuance of Assets on Mainnet| |[hacashtalk ➚](https://hacashtalk.com/t/proposal-for-the-issuance-of-external-assets-on-the-hacash-mainnet-draft/338) | 
 |❔|18|HACD Minimum Bidding Fee|[github ➚](https://github.com/hacash/fullnode/issues/5#issuecomment-2626283210)|[github ➚](https://github.com/hacash/fullnode/issues/5)|
 |❔|17|Prevent Exploitation of Low-Bid HACD Mining|[github ➚](https://github.com/hacash/fullnode/issues/5)|[hacashtalk ➚](https://hacashtalk.com/t/hip-17-proposed-solutions-to-prevent-exploitation-of-low-bid-hacd-mining/351) | 
 |❔|16|Programmability of Layer 1|[github ➚](https://github.com/hacash/paper/blob/master/HIP/protocol/account_and_syntax_tree_abstraction.md) | |
 |🟩|15|HACD Secondary Artistic Creation|[github ➚](https://github.com/hacash/paper/blob/master/HIP/diamond/hacd_inscription.md) |[hacashtalk ➚](https://hacashtalk.com/t/hip15-hacd-secondary-artistic-creation-signature-engraving-and-erasure/184)|
 |❔|14|Bitcoin Fork Selection Rules| |[github ➚](https://github.com/hacash/paper/blob/master/HIP/currency/bitcoin_fork_selection_rules.cn.md)|
-|❔|13|Bitcoin One-Way Transfer Solution| |[twitter ➚](https://twitter.com/HacashCom/status/1651465484511121409?s=20)|
+|❔|13|Bitcoin One-Way Transfer Solution| |[X ➚](https://X.com/HacashCom/status/1651465484511121409?s=20)|
 |🟩|12|Development Workflow & Code Permission|[github ➚](https://github.com/hacash/paper/blob/master/HIP/development/HIP-12_Hacash_development_workflow_and_code_permission.pdf)|[discord ➚](https://discord.com/channels/757976908653920299/844038285260619797/1080030124965122098)|
 |❔|11|HAC Issuance Rules Consensus|[github ➚](https://github.com/hacash/paper/blob/master/HIP/currency/HAC_currency_issuance_rules_consensus_proposal.pdf)|[discord ➚](https://discord.com/channels/757976908653920299/844038285260619797/1077972477357072494)|
 |❔|10|PoW Art Standard|[github ➚](https://github.com/hacash/paper/blob/master/HIP/diamond/PoW_Art_Standard.mediawiki)| |
