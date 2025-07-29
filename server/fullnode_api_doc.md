@@ -537,6 +537,27 @@ Note: the fields ' hacash / satoshi / diamond / diamonds / from / to ' in the `a
 }
 ```
 
+#### 3.9 Query average fee `GET: /query/fee/average`
+
+Get real-time average fees for the current blocks of the blockchain (recommendation fees).
+
+Pass parameters:
+
+- consumption [int] Tx byte size, The handling fee of ordinary Hacash transactions is calculated in terms of size, and when the transaction size is large, more fees need to be paid. This parameter will return the recommended tx fee when passed
+- unit [string] Optional, whether to return floating-point string in units of "mei" or "248"
+
+examples link：[http://nodeapi.hacash.org/query/fee/average?consumption=120](http://nodeapi.hacash.org/query/fee/average?consumption=120)
+ 
+examples return data：
+ 
+```js
+{
+    ret: 0,
+    feasible: "6024:240" // fee settings for tx with size 120 bytes
+}
+```
+
+
 ---
 
 ## 4. /operate Modification, operation
