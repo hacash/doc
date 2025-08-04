@@ -543,7 +543,7 @@ Get real-time average fees for the current blocks of the blockchain (recommendat
 
 Pass parameters:
 
-- consumption [int] Tx byte size, The handling fee of ordinary Hacash transactions is calculated in terms of size, and when the transaction size is large, more fees need to be paid. This parameter will return the recommended tx fee when passed
+- consumption [int] Tx byte size (must full size including all signature datas), The handling fee of ordinary Hacash transactions is calculated in terms of size, and when the transaction size is large, more fees need to be paid. This parameter will return the recommended tx fee when passed
 - unit [string] Optional, whether to return floating-point string in units of "mei" or "248"
 
 examples link：[http://nodeapi.hacash.org/query/fee/average?consumption=120](http://nodeapi.hacash.org/query/fee/average?consumption=120)
