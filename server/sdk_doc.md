@@ -68,7 +68,7 @@ In the Node.js environment, the WASM SDK will be automatically initialized when 
 
 ### SDK Doc
 
-#### 1. Create Account
+#### 1. Create Account `create_account`
 
 ```js
 // password
@@ -93,7 +93,7 @@ console.log(account)
 }
 ```
 
-#### 2. Verify Address
+#### 2. Verify Address `verify_address`
 
 ```js
 let addr = "1MzNY1oA3kfgYi75zquj3SRUPYztzXHzK9"
@@ -109,7 +109,7 @@ let result = sdk.verify_address(addr)
 }
 ```
 
-#### 3. Create Coin Transfer Tx
+#### 3. Create Coin Transfer Tx `create_coin_transfer`
 
 ```js
 
@@ -142,7 +142,7 @@ console.log(txres.body)
 `body` is the value that contains the signed transaction body, which can be directly submitted to the full node.
 
 
-#### 4. Do Sign for One Tx
+#### 4. Do Sign for One Tx `sign_transaction`
 
 ```js
 
@@ -150,7 +150,7 @@ let stps = new sdk.SignTxParam()
 stps.prikey = "abc123"
 stps.body = "0200689e96d400e63c33a796b3032ce6b856f68fccf06608d9ed18f401010002000100e63c33a796b3032ce6b856f68fccf06608d9ed18f8010c000a00e63c33a796b3032ce6b856f68fccf06608d9ed180000000000b71b0000010231745adae24044ff09c3541537160abb8d5d720275bbaeed0b3d035b1e8b263c9b607f2bd9e1031536c13741facb78585755c116aa7d10628ebc2adbb4be96493bc1bb8ac6c3e78dee6717b9c4a27280b698efc91097d5900418a59c9d8e7ac30000" // tx body
 try {
-    let resg = sdk.sign_tx(stps)
+    let resg = sdk.sign_transaction(stps)
     console.log("sign res:", resg)
     console.log("tx body:", resg.body)
 }catch(e) {
