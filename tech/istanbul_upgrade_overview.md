@@ -3,7 +3,7 @@ Istanbul Upgrade Overview
 
 Since the release of its white paper in 2018 and the mining of its first block in 2019, Hacash has been running steadily for six years. The richness of its PoW economic model and the forward-thinking nature of its Crypto Sound Money theory have been proven over the long term.
 
-This upgrade (named Istanbul, borrowing the city name) integrates a variety of major technologies proposed and developed over the years, covering aspects such as asset issuance, contract construction, and programmability, including HIP-20, TDEX, AST (HIP-16), and HVM (developed by Hacash.com). From this point on, Hacash has achieved a revolutionary breakthrough in public chain technology: transforming from a pure currency issuance and payment blockchain into a foundational ecosystem that supports the continuous innovation and secure operation of global currencies, assets, and financial systems.
+This upgrade (named Istanbul, borrowing the city name) integrates a variety of major technologies proposed and developed over the years, covering aspects such as asset issuance, contract construction, and programmability, including HIP-20, TDEX, AST (HIP-16), and HVM, P2SH (developed by Hacash.com). From this point on, Hacash has achieved a revolutionary breakthrough in public chain technology: transforming from a pure currency issuance and payment blockchain into a foundational ecosystem that supports the continuous innovation and secure operation of global currencies, assets, and financial systems.
 
 This document will briefly introduce this series of major technologies and outline a new world with encrypted financial centered on sound money.
 
@@ -71,8 +71,21 @@ It surpasses traditional blockchain VMs in both smart contract security and arch
 The HVM source code has now been merged into [Fullnode](https://github.com/hacashcom/fullnode). For more information, please visit [https://hacash.com/HVM](https://hacash.com/HVM).
 
 
+### P2SH
+
+P2SH draws on Bitcoin's Pay-to-Script-Hash technology, also supports MAST (Merklized Abstract Syntax Trees), and has undergone the following major technical upgrades:
+
+- HAC, BTC, HACD, and any HIP-20 assets can be sent to this script address for unified management.
+
+- The control script supports full HVM programmability.
+
+- The Merkle tree verification hash algorithm uses SHA3, making it more secure and efficient.
+
+It can be anticipated that, combined with AST conditional contracts, this technology will become a core component of the Hacash L3 multi-chain ecosystem's cross-chain technology system.
+
+
 ---
 
-If you want to run tests, enable the fullnode source configuration in Cargo.toml at compile time with `default = ["db-sled", "hip20", "tex", "ast", "hvm"]` features. This will activate these technical upgrades when running a local test fullnode.
+If you want to run tests, enable the fullnode source configuration in Cargo.toml at compile time with `default = ["hip20", "tex", "ast", "hvm", "p2sh"]` features. This will activate these technical upgrades when running a local test fullnode.
 
 Finally, we believe this is not just an big upgrade of Hacash, but also represents the forefront of public blockchain technology development in the entire crypto industry. Hacash is entering a brand new phase, and an era of a thriving ecosystem is about to begin.
