@@ -112,9 +112,45 @@ Please note that in the past, the mining side had to be connected to a separate 
 ;;; The full node API service IP address and port of the connection
 connect = 127.0.0.1:8081
 
-;;; Currently, only CPU device mining is supported
 ;;; Multi-threaded mining, using CPU multi-core parallel mining.
 supervene = 2
+
+
+;;; OpenCL GPU configurations
+[gpu]
+
+;;; Enable or disable GPU mining via OpenCL
+# true  = use the OpenCL GPU miner
+# false = fallback to CPU mining
+use_opencl = false
+
+;;; Number of work-groups to launch
+;;; Increasing this increases total parallelism, but also GPU load
+;;; total_threads = work_groups × local_size
+work_groups = 1024
+
+;;; Number of work-items per work-group
+;;; Must match hardware constraints. Common values: 128, 256
+;;; Higher values generally improve occupancy but use more local memory
+local_size = 256
+
+;;; Number of nonces processed per work-item.
+;;; Larger values increase parallel hashing within each thread, improving performance
+;;; Typical values: 32–512 depending on GPU memory and architecture
+unit_size = 128
+
+;;; Path to the directory containing the OpenCL kernel (.cl) files
+;;; IMPORTANT: the path must end with a slash or backslash (e.g. "opencl/")
+;;; Can be relative or absolute
+opencl_dir = opencl/
+
+;;; ID of the OpenCL platform to use
+;;; Try setting this value to 1 if you encounter compilation errors
+platform_id = 0
+
+;;; Comma-separated list of GPU device IDs to use (e.g. "0,1,2")
+;;; Leave empty to automatically use all available GPU devices on the selected platform
+device_ids =
 
 ```
 
